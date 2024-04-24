@@ -24,13 +24,11 @@ while True:
     pass_len = input("Choose password length (minimum len = 8) : ")
     if pass_len.isdigit() and int(pass_len) < 8:
         print("Password length can not be less than 8")
-        continue
     elif pass_len.isdigit() and int(pass_len) >= 8:
         pass_len = int(pass_len)
         break
     else:
         print("Please choose in numbers, no letters!")
-        continue
 
 back = ""
 while pass_len > 0:
