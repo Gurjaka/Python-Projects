@@ -28,11 +28,13 @@ def display_menu():
     for option, name in MENU.items():
         print(f"{option}. {name}")
 
+# Function to display available goods
 def display_goods():
     print("\n--- Available goods ---")
     for name, price in GOODS.items():
         print(f"{name} - {price} {CURRENCY}.")
         
+# Function to add goods to your basket
 def add_to_basket():
     name = input("enter name: ").lower()
     if name in GOODS:
@@ -49,16 +51,16 @@ def add_to_basket():
     else:
         print("this good is not in the shop")
         
-
+# Function to display basket
 def display_basket():
     print("\n--- Your basket ---")
     for item in basket:
         print(f"{item[0]} - {item[2]} x {item[1]} {CURRENCY}")
 
 
-print(GOODS.items())
+# print(GOODS.items())
 
-
+# Loop for store
 while True:
     display_menu()
     menu_choise = int(input("choise an option:"))
