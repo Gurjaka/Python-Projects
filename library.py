@@ -4,7 +4,7 @@ reg_users= {}
 
 last_id = 0
 id_string ="LIB"
-menu_items ={"1":"add user","x":"exit"}
+menu_items ={"1":"add user", "2":"find user", "x":"exit"}
 
 def gen_id():
     global last_id
@@ -30,7 +30,13 @@ def collect_info():
     paid_membership = input('Do you want to get the paid membership?\nif "yes" - you will be able to bring the book with you, outside the library\nif "no" - you can only read the book in the library.\nChoose your answer (yes or no): ').lower()
     user_info =[name,surname,phone_number,birthday,piradi_nomeri,paid_membership]
     return user_info
-   
+
+def find_user():
+    identity = input("Input library id: ")
+    for key, value in reg_users.items():
+        if key == identity:
+            print(key,value)
+
 
 # main_code
 while True:
@@ -42,5 +48,7 @@ while True:
         lib_id = gen_id()
         user_info = collect_info()
         reg_users.setdefault(lib_id,user_info)
-    for key, value in reg_users.items():
-         print(key,value)
+    # for key, value in reg_users.items():
+    #      print(key,value)
+    elif menu_elem == "2":
+        find_user()
