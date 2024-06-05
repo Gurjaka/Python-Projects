@@ -1,6 +1,14 @@
 #gen ID like LIB00023 where firss section "LIB" last 5 chars is numer in five chars
 reg_users= {}
 
+genre = {"001":"Classics", "002":"Fantasy", "003":"Science Fiction", "004":"Self-help", "005":"Educational"}
+
+publisher = {"001":"Penguin Random House", "002":"Simon & Schuster", "003":"HarperCollins", "004":"Macmillan Publishers"}
+
+author = {"00001":"Jane Austen", "00002":"Harper Lee", "00003":"F.Scott Fitzgerald", "00004":"Mary Shelley", "00005":"George Orwell", "00006":"J.R.R. Tolkien",
+"00007":"George R.R. Martin", "00008":"J.K. Rowling ", "00009":"C.S. Lewis", "00010":"TBrandon Sanderson"}
+
+year = [1813, 1960, 1925, 1818, 1949, 1954, 1996, 1997, 1950, 2006, 1965, 1979, 1985, 1968, 1989, 1936, 2011, 1952, 2018, 2003, 2015, 1980, 2008, 2016]
 
 last_id = 0
 id_string ="LIB"
@@ -35,7 +43,7 @@ def find_user():
     identity = input("Input library id: ")
     for key, value in reg_users.items():
         if key == identity:
-            print(key,value)
+            return key,value
 
 
 # main_code
@@ -51,4 +59,5 @@ while True:
     # for key, value in reg_users.items():
     #      print(key,value)
     elif menu_elem == "2":
-        find_user()
+        print(find_user())
+        
