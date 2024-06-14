@@ -89,10 +89,8 @@ while True:
         continue
 
     else:
-        for i in word_to_hang:
-            if i == guess:
-                word_output = word_output[:word_to_hang.find(i)] + guess + word_output[word_to_hang.find(i)+1:]
-        continue
-
-
-
+        new_word_output = list(word_output)
+        for i in range(len(word_to_hang)):
+            if word_to_hang[i] == guess:
+                new_word_output[i] = guess
+        word_output = "".join(new_word_output)
