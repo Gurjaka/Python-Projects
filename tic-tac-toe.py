@@ -37,14 +37,17 @@ def change_positions():
         game_table[y-1].insert(x-1, "O")
 
 def win(x,y):
-        if game_table[y-1][0]==game_table[y-1][1]==game_table[y-1][2]=="X" or game_table[y-1][0]==game_table[y-1][1]==game_table[y-1][2]=="O":
-            return True  
-        elif game_table[0][x-1]==game_table[1][x-1]==game_table[2][x-1]=="X" or game_table[0][x-1]==game_table[1][x-1]==game_table[2][x-1]=="O":
-            return True
-        elif ((x==2 or y==2) and (x!=y)) != True:
-            if game_table[0][0]==game_table[1][1]==game_table[2][2]=="X" or game_table[0][0]==game_table[1][1]==game_table[2][2]=="O":
+        if turn < 5:
+            pass
+        else:
+            if game_table[y-1][0]==game_table[y-1][1]==game_table[y-1][2]=="X" or game_table[y-1][0]==game_table[y-1][1]==game_table[y-1][2]=="O":
+                return True  
+            elif game_table[0][x-1]==game_table[1][x-1]==game_table[2][x-1]=="X" or game_table[0][x-1]==game_table[1][x-1]==game_table[2][x-1]=="O":
                 return True
-            
+            elif ((x==2 or y==2) and (x!=y)) != True:
+                if game_table[0][0]==game_table[1][1]==game_table[2][2]=="X" or game_table[0][0]==game_table[1][1]==game_table[2][2]=="O":
+                    return True
+                
 
 while True:
     show_table()
