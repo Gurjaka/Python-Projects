@@ -30,29 +30,31 @@ def error_check(pos):
         print("Incorrect input")
 
 def change_positions():
+    global sign
     game_table[y-1].pop(x-1)
     if turn % 2 == 0:
         game_table[y-1].insert(x-1, "X")
+        sign = "X"
     else:
         game_table[y-1].insert(x-1, "O")
+        sign = "O"
 
-def win(x,y):
+def win(x,y,sig):
         if turn < 5:
             pass
         else:
-            if game_table[y-1][0]==game_table[y-1][1]==game_table[y-1][2]=="X" or game_table[y-1][0]==game_table[y-1][1]==game_table[y-1][2]=="O":
+            if game_table[y-1][0]==game_table[y-1][1]==game_table[y-1][2]==sig :
                 return True  
-            elif game_table[0][x-1]==game_table[1][x-1]==game_table[2][x-1]=="X" or game_table[0][x-1]==game_table[1][x-1]==game_table[2][x-1]=="O":
+            elif game_table[0][x-1]==game_table[1][x-1]==game_table[2][x-1]==sig :
                 return True
             elif ((x==2 or y==2) and (x!=y)) != True:
-                if game_table[0][0]==game_table[1][1]==game_table[2][2]=="X" or game_table[0][0]==game_table[1][1]==game_table[2][2]=="O":
-                    return True
-                
+                if game_table[0][0]==game_table[1][1]==game_table[2][2]==sig or game_table[0][2]==game_table[1][1]==game_table[2][0]==sig:
+                    return True   
 
 while True:
     show_table()
     positions()
     change_positions()
-    if win(x,y):
+    if win(x,y,sign):
         print("You win!")
         break
