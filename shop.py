@@ -60,7 +60,7 @@ def display_basket():
 
 # print(GOODS.items())
 
-# Loop for store
+# Loop for
 while True:
     display_menu()
     menu_choise = int(input("choise an option:"))
