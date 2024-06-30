@@ -3,8 +3,10 @@ let
 in
 pkgs.mkShell {
   packages = [
-    (pkgs.python312Full.withPackages (python-pkgs: [
+    (pkgs.python3.withPackages (python-pkgs: [
       python-pkgs.art
+      python-pkgs.jupyter
+      python-pkgs.pip
     ]))
   ];
 
